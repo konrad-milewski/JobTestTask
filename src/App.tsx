@@ -43,7 +43,6 @@ const App = () => {
   useEffect(() => {
     let colorsPreAdded: string[] = [];
     let dataFromStorage = JSON.parse(localStorage.getItem("Colors")!) || [];
-    console.log(hexToHSL("#00fff0"));
     preDefinedColors.forEach((x) => {
       if (!dataFromStorage.includes(x)) {
         colorsPreAdded.push(x);

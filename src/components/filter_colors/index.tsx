@@ -18,7 +18,6 @@ const FilterColors: React.FunctionComponent<Props> = ({
 
     if (!filters.includes(value)) {
       array.push(value);
-      console.log();
     } else {
       array = array.filter((x) => x !== `${value}`);
     }

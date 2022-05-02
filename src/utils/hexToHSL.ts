@@ -3,14 +3,14 @@ const hexToHSL = (hex) => {
   if (hex.length === 3) {
     hex = hex
       .split("")
-      .map( (hex) =>  {
+      .map((hex) => {
         return hex + hex;
       })
       .join("");
   }
   var result = /^([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})[\da-z]{0,0}$/i.exec(hex);
   if (!result) {
-    return {}
+    return {};
   }
   var r = parseInt(result[1], 16);
   var g = parseInt(result[2], 16);
@@ -23,7 +23,7 @@ const hexToHSL = (hex) => {
   var h,
     s,
     l = (max + min) / 2;
-  if (max == min) {
+  if (max === min) {
     h = s = 0;
   } else {
     var d = max - min;
@@ -54,6 +54,6 @@ const hexToHSL = (hex) => {
       l: l,
     } || {}
   );
-}
+};
 
 export default hexToHSL;

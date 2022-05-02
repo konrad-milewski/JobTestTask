@@ -8,7 +8,7 @@ const rgbToHsl = (c) => {
     s,
     l = (max + min) / 2;
 
-  if (max == min) {
+  if (max === min) {
     h = s = 0; // achromatic
   } else {
     var d = max - min;
@@ -26,7 +26,8 @@ const rgbToHsl = (c) => {
     }
     h /= 6;
   }
-  return new Array(h * 360, s * 100, l * 100);
+  return [h * 360, s * 100, l * 100]
+
 };
 
 export default rgbToHsl;

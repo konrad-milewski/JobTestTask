@@ -8,6 +8,7 @@ import FilterColors from "./components/filter_colors";
 import updateLocalStorage from "./utils/updateLocalStorage";
 
 const App = () => {
+  
   const [dbColors, setDbColors] = useState<Array<string>>([]);
   const [preDefinedColors] = useState<Array<string>>([
     "#AAAAAA",
@@ -52,6 +53,7 @@ const App = () => {
     setDbColors(newDbColors);
     sortColors(newDbColors);
     updateLocalStorage(newDbColors);
+   // eslint-disable-next-line
   }, []);
 
   return (

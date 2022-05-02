@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
+import React, { Dispatch, SetStateAction, useState } from "react";
 import hexToHSL from "../../utils/hexToHSL";
 import hexToRgb from "../../utils/hexToRgb";
 
@@ -39,10 +39,9 @@ const FilterColors: React.FunctionComponent<Props> = ({
         colorsToShow = colorsToShow.filter((c) => hexToRgb(c)[2] > 127);
       } else if (x === "saturation") {
         colorsToShow = colorsToShow.filter((c) => {
-          if (hexToHSL(c) !== null) {
-            console.log(hexToHSL("#BBBBBB"));
+     
             return hexToHSL(c).s > 50;
-          }
+          
         });
       }
     });

@@ -66,7 +66,7 @@ const App = () => {
 
       {sortColors(dbColors).map((x, idx) => {
         return (
-          <div className="border mb-2 p-relative rounded p-20px">
+          <div key={idx} className="border mb-2 p-relative rounded p-20px">
             <div>
               <ColorBox color={x} />
 

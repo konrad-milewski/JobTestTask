@@ -8,25 +8,25 @@ const hexToHSL = (hex) => {
       })
       .join("");
   }
-  var result = /^([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})[\da-z]{0,0}$/i.exec(hex);
+  let result = /^([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})[\da-z]{0,0}$/i.exec(hex);
   if (!result) {
     return {};
   }
-  var r = parseInt(result[1], 16);
-  var g = parseInt(result[2], 16);
-  var b = parseInt(result[3], 16);
+  let r = parseInt(result[1], 16);
+  let g = parseInt(result[2], 16);
+  let b = parseInt(result[3], 16);
   r /= 255;
   g /= 255;
   b /= 255;
-  var max = Math.max(r, g, b),
+  let max = Math.max(r, g, b),
     min = Math.min(r, g, b);
-  var h,
+  let h,
     s,
     l = (max + min) / 2;
   if (max === min) {
     h = s = 0;
   } else {
-    var d = max - min;
+    let d = max - min;
     s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
     switch (max) {
       case r:

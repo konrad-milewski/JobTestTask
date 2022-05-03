@@ -14,6 +14,9 @@ const App = () => {
     "#FF1100",
     "#44FF00",
     "#1900FF",
+    "#E02500",
+    "#54E600",
+    "#0206DE"
   ]);
 
   const sortColors = (dbColors) => {

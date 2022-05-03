@@ -8,7 +8,6 @@ import FilterColors from "./components/filter_colors";
 import updateLocalStorage from "./utils/updateLocalStorage";
 
 const App = () => {
-  
   const [dbColors, setDbColors] = useState<Array<string>>([]);
   const [preDefinedColors] = useState<Array<string>>([
     "#FF1100",
@@ -16,9 +15,10 @@ const App = () => {
     "#1900FF",
     "#E02500",
     "#54E600",
-    "#0206DE"
+    "#0206DE",
   ]);
 
+  
   const sortColors = (dbColors) => {
     let arrayOfRgb: number[][] = [];
 
@@ -26,20 +26,20 @@ const App = () => {
       arrayOfRgb.push(hexToRgb(x));
     });
 
-    var sortedRgbArr = arrayOfRgb
-      .map( (c, i) =>{
+    let sortedRgbArr = arrayOfRgb
+      .map((c, i) => {
         // Convert to HSL and keep track of original indices
         return { color: rgbToHsl(c), index: i };
       })
-      .sort( (c1, c2) => {
+      .sort((c1, c2) => {
         // Sort by hue
         return c1.color[0] - c2.color[0];
       })
-      .map( (data) => {
+      .map((data) => {
         // Retrieve original RGB color
         return dbColors[data.index];
       });
-  
+
     return sortedRgbArr;
   };
 
@@ -55,7 +55,7 @@ const App = () => {
     setDbColors(newDbColors);
     sortColors(newDbColors);
     updateLocalStorage(newDbColors);
-   // eslint-disable-next-line
+    // eslint-disable-next-line
   }, []);
 
   return (
@@ -67,7 +67,7 @@ const App = () => {
 
       <h2>Kolory</h2>
 
-      {sortColors(dbColors).map((x, idx) => {
+      {dbColors.sort().reverse().map((x, idx) => {
         return (
           <div key={idx} className="border mb-2 p-relative rounded p-20px">
             <div>
@@ -98,6 +98,6 @@ const App = () => {
       })}
     </div>
   );
-}
+};
 
 export default App;

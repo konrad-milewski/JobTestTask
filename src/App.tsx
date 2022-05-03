@@ -18,7 +18,7 @@ const App = () => {
     "#0206DE",
   ]);
 
-  
+  // Old sorting deprecated --TO DELETE
   const sortColors = (dbColors) => {
     let arrayOfRgb: number[][] = [];
 
@@ -42,6 +42,7 @@ const App = () => {
 
     return sortedRgbArr;
   };
+  // Old sorting deprecated --TO DELETE
 
   useEffect(() => {
     let colorsPreAdded: string[] = [];
@@ -67,35 +68,38 @@ const App = () => {
 
       <h2>Kolory</h2>
 
-      {dbColors.sort().reverse().map((x, idx) => {
-        return (
-          <div key={idx} className="border mb-2 p-relative rounded p-20px">
-            <div>
-              <ColorBox color={x} />
+      {dbColors
+        .sort()
+        .reverse()
+        .map((x, idx) => {
+          return (
+            <div key={idx} className="border mb-2 p-relative rounded p-20px">
+              <div>
+                <ColorBox color={x} />
 
-              {!preDefinedColors.includes(x) && (
-                <p
-                  className="close pointer"
-                  onClick={() => {
-                    let newArray = dbColors.filter((c) => c !== x);
-                    setDbColors(newArray);
-                    updateLocalStorage(newArray);
-                  }}
-                >
-                  X
-                </p>
-              )}
+                {!preDefinedColors.includes(x) && (
+                  <p
+                    className="close pointer"
+                    onClick={() => {
+                      let newArray = dbColors.filter((c) => c !== x);
+                      setDbColors(newArray);
+                      updateLocalStorage(newArray);
+                    }}
+                  >
+                    X
+                  </p>
+                )}
+              </div>
+              <h4 key={idx} className="m-0">
+                {x}
+              </h4>
+              <p>RGB ({hexToRgb(x).join(",")})</p>
+              <p>
+                HSL ({hexToHSL(x).h},{hexToHSL(x).s},{hexToHSL(x).l})
+              </p>
             </div>
-            <h4 key={idx} className="m-0">
-              {x}
-            </h4>
-            <p>RGB ({hexToRgb(x).join(",")})</p>
-            <p>
-              HSL ({hexToHSL(x).h},{hexToHSL(x).s},{hexToHSL(x).l})
-            </p>
-          </div>
-        );
-      })}
+          );
+        })}
     </div>
   );
 };

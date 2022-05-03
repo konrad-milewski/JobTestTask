@@ -11,9 +11,9 @@ const App = () => {
   
   const [dbColors, setDbColors] = useState<Array<string>>([]);
   const [preDefinedColors] = useState<Array<string>>([
-    "#AAAAAA",
-    "#CCCCCC",
-    "#3D3A31",
+    "#FF1100",
+    "#44FF00",
+    "#1900FF",
   ]);
 
   const sortColors = (dbColors) => {

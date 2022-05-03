@@ -88,7 +88,7 @@ const App = () => {
             </h4>
             <p>RGB ({hexToRgb(x).join(",")})</p>
             <p>
-              HSL({hexToHSL(x).h},{hexToHSL(x).s},{hexToHSL(x).l})
+              HSL ({hexToHSL(x).h},{hexToHSL(x).s},{hexToHSL(x).l})
             </p>
           </div>
         );
